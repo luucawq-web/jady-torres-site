@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: jady-torres-site
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=2592000, immutable
+      - path: /vendor/*
+        name: Cache-Control
+        value: public, max-age=2592000, immutable
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
